@@ -1,26 +1,26 @@
-import interface as inter
-import print_contacts as contacts
-import find_contact as f
-import action_contact as action
-import new_contact
+# заключает в себе все функции
 
+import recording # новый контакт
+import searching # поиск
+import view # пользовательский интерфейс
+import logger #
 
-def run_programm():
-    command = 10
-    while command:
-        command = inter.main_menu()
-        if command == 1:
-            contacts.print_contact()
-        elif command == 2:
-            finding = inter.get_find()
-            if finding:
-                found = f.find_contact(finding[0], finding[1])
-            else:
-                continue
-            if contacts.print_contact(found) == -1: continue
-            action.action_contact(found)
-        elif command == 3:
-            new_contact_data = inter.get_new_contact()
-            if f.exist_contact(new_contact_data):
-                if not inter.create_dubl(): continue
-            new_contact.create_contact(new_contact_data)
+def run():
+     temp = view.choice()
+     if temp == 1:
+          print ('Вами выбрана операция внесения в справочник нового контакта')
+          entry = recording.record() # Запись в справочник
+          logger.log_to_file(entry)
+          run()
+     if temp == 2:
+          print ('\nВами выбрана операция поиска контакта в справочнике\n' )
+          entry = searching.search() # Поиск в справочнике
+          logger.reading_file(entry)
+          run()
+     if temp == 3:
+          print ('n=== ВСЕ КОНТАКТЫ ТЕЛЕФОННОГО СПРАВОЧНИКА ===\n')
+          logger.read_all_file()  
+          run()
+     if temp == 4:
+          print('\n Работа телефонного справочника окончена. Всего доброго.\n')
+          
