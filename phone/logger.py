@@ -1,20 +1,5 @@
 # записывает инфу о выполненных операциях
 
-# from datetime import datetime
-# # import output
-
-# def log_to_file(entry):  
-    
-#     with open('phone.csv', 'a') as file:
-#         file.write(
-#             f'{entry[0]};{entry[1]};{entry[2]};{entry[3]};{entry[4]};\n')
-
-# def read_all_file(): #чтение всего файла
-
-#         with open('phone.csv', 'r') as file:
-#             for line in file:
-#                 print(line)
-
 from datetime import datetime
 import output
 
@@ -22,11 +7,11 @@ def log_to_file(entry):
     
     with open('horizontal.csv', 'a') as file:
         file.write(
-            f'{entry[0]};{entry[1]};{entry[2]};{entry[3]};{entry[4]};\n')
+            f'{entry[0]};{entry[1]};{entry[2]};{entry[3]}\n')
 
     with open('vertical.csv', 'a') as file:
         file.write(
-            f'{entry[0]}\n{entry[1]}\n{entry[2]}\n{entry[3]}\n{entry[4]}\n\n')    
+            f'{entry[0]}\n{entry[1]}\n{entry[2]}\n{entry[3]}\n')    
 
 def reading_file(param): 
     b = output.stile()
@@ -41,7 +26,7 @@ def reading_file(param):
             for line in file:
                 if param in line:
                     list = line.split(";")
-                    print(f'{list[0]}\n{list[1]}\n{list[2]}\n{list[3]}\n{list[4]}\n\n')                       
+                    print(f'{list[0]}\n{list[1]}\n{list[2]}\n{list[3]}\n')                       
 
 def read_all_file(): 
     b = output.stile()

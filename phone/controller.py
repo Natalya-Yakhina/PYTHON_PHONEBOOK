@@ -8,12 +8,12 @@ import logger #
 def run():
      temp = view.choice()
      if temp == 1:
-          print ('Вами выбрана операция внесения в справочник нового контакта')
+          print ('Внесение нового контакта в справочник')
           entry = recording.record() # Запись в справочник
           logger.log_to_file(entry)
           run()
      if temp == 2:
-          print ('\nВами выбрана операция поиска контакта в справочнике\n' )
+          print ('\n Операция поиска контакта в справочнике\n' )
           entry = searching.search() # Поиск в справочнике
           logger.reading_file(entry)
           run()
@@ -22,5 +22,5 @@ def run():
           logger.read_all_file()  
           run()
      if temp == 4:
-          print('\n Работа телефонного справочника окончена. Всего доброго.\n')
+          print('\n Работа завершена \n')
           
